@@ -1,3 +1,5 @@
+# https://huggingface.co/docs/transformers/tasks/sequence_classification
+
 from model import RobertaForSequenceClassification
 from dataset import VNMWordSegmentedDataset
 from transformers import TrainingArguments, Trainer, AutoTokenizer, DataCollatorWithPadding
@@ -6,6 +8,7 @@ import numpy as np
 
 
 def compute_metrics(eval_pred):
+    # https://discuss.huggingface.co/t/log-multiple-metrics-while-training/8115/4
     f1_func = evaluate.load("f1")
     pr_func = evaluate.load("precision")
     rc_func = evaluate.load("recall")
@@ -52,6 +55,7 @@ train_dataset = tokenized_datasets['train'].shuffle(seed=42).select(
     range(1000))
 valid_dataset = tokenized_datasets['test'].shuffle(seed=43).select(range(1000))
 
+# https://huggingface.co/docs/transformers/training#finetune-with-trainer
 training_args = TrainingArguments(
     output_dir="./results",
     learning_rate=2e-5,
@@ -61,6 +65,7 @@ training_args = TrainingArguments(
     weight_decay=0.01,
     evaluation_strategy="epoch",
 )
+
 trainer = Trainer(
     model=model,
     args=training_args,
