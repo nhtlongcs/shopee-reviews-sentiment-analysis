@@ -1,0 +1,21 @@
+.vscode
+__pycache__
+.DS_Store
+data/
+checkpoints/
+tmp/
+*.pyc
+# weights
+*.pt
+*.pth
+*.zip
+*.onnx
+*.trt
+*.egg-info
+*.eggs
+*.json
+results/
+runs/
+data_sample/
+.pytest_cache
+data
