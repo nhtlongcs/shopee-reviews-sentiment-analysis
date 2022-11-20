@@ -1,0 +1,103 @@
+  0%|                                                             | 0/189 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/home/nhtlong/playground/zalo-ai/applybigdata/shopee-reviews-sentiment-analysis/src/train.py", line 51, in <module>
+    trainer.train()
+  File "/home/nhtlong/.conda/envs/kaggle/lib/python3.10/site-packages/transformers/trainer.py", line 1498, in train
+    return inner_training_loop(
+  File "/home/nhtlong/.conda/envs/kaggle/lib/python3.10/site-packages/transformers/trainer.py", line 1714, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/nhtlong/.conda/envs/kaggle/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 530, in __next__
+    data = self._next_data()
+  File "/home/nhtlong/.conda/envs/kaggle/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 570, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/nhtlong/.conda/envs/kaggle/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    return self.collate_fn(data)
+  File "/home/nhtlong/.conda/envs/kaggle/lib/python3.10/site-packages/transformers/data/data_collator.py", line 67, in default_data_collator
+    return torch_default_data_collator(features)
+  File "/home/nhtlong/.conda/envs/kaggle/lib/python3.10/site-packages/transformers/data/data_collator.py", line 131, in torch_default_data_collator
+    batch[k] = torch.tensor([f[k] for f in features])
+ValueError: expected sequence of length 72 at dim 1 (got 66)
+[31m╭────────────────────────── [39m[1mTraceback (most recent call last)[31m[22m ───────────────────────────╮
+[31m│[39m /home/nhtlong/playground/zalo-ai/applybigdata/shopee-reviews-sentiment-analysis/src/[1mtr[22m [31m│
+[31m│[39m [1main.py[22m:[94m51[39m in [92m<module>[39m                                                                  [31m│
+[31m│[39m                                                                                        [31m│
+[31m│[39m   48 │   compute_metrics=compute_metrics,                                              [31m│
+[31m│[39m   49 )                                                                                 [31m│
+[31m│[39m   50                                                                                   [31m│
+[31m│[39m [31m❱ [39m51 trainer.train()                                                                   [31m│
+[31m│[39m                                                                                        [31m│
+[31m│[39m /home/nhtlong/.conda/envs/kaggle/lib/python3.10/site-packages/transformers/[1mtrainer.py[22m: [31m│
+[31m│[39m [94m1498[39m in [92mtrain[39m                                                                          [31m│
+[31m│[39m                                                                                        [31m│
+[31m│[39m   1495 │   │   inner_training_loop = find_executable_batch_size(                       [31m│
+[31m│[39m   1496 │   │   │   [96mself[39m._inner_training_loop, [96mself[39m._train_batch_size, args.auto_find_b [31m│
+[31m│[39m   1497 │   │   )                                                                       [31m│
+[31m│[39m [31m❱ [39m1498 │   │   [94mreturn[39m inner_training_loop(                                             [31m│
+[31m│[39m   1499 │   │   │   args=args,                                                          [31m│
+[31m│[39m   1500 │   │   │   resume_from_checkpoint=resume_from_checkpoint,                      [31m│
+[31m│[39m   1501 │   │   │   trial=trial,                                                        [31m│
+[31m│[39m                                                                                        [31m│
+[31m│[39m /home/nhtlong/.conda/envs/kaggle/lib/python3.10/site-packages/transformers/[1mtrainer.py[22m: [31m│
+[31m│[39m [94m1714[39m in [92m_inner_training_loop[39m                                                           [31m│
+[31m│[39m                                                                                        [31m│
+[31m│[39m   1711 │   │   │   │   [96mself[39m._load_rng_state(resume_from_checkpoint)                    [31m│
+[31m│[39m   1712 │   │   │                                                                       [31m│
+[31m│[39m   1713 │   │   │   step = -[94m1[39m                                                           [31m│
+[31m│[39m [31m❱ [39m1714 │   │   │   [94mfor[39m step, inputs [95min[39m [96menumerate[39m(epoch_iterator):                      [31m│
+[31m│[39m   1715 │   │   │   │                                                                   [31m│
+[31m│[39m   1716 │   │   │   │   # Skip past any already trained steps if resuming training      [31m│
+[31m│[39m   1717 │   │   │   │   [94mif[39m steps_trained_in_current_epoch > [94m0[39m:                          [31m│
+[31m│[39m                                                                                        [31m│
+[31m│[39m /home/nhtlong/.conda/envs/kaggle/lib/python3.10/site-packages/torch/utils/data/[1mdataloa[22m [31m│
+[31m│[39m [1mder.py[22m:[94m530[39m in [92m__next__[39m                                                                 [31m│
+[31m│[39m                                                                                        [31m│
+[31m│[39m    527 │   │   [94mwith[39m torch.autograd.profiler.record_function([96mself[39m._profile_name):       [31m│
+[31m│[39m    528 │   │   │   [94mif[39m [96mself[39m._sampler_iter [95mis[39m [94mNone[39m:                                      [31m│
+[31m│[39m    529 │   │   │   │   [96mself[39m._reset()                                                   [31m│
+[31m│[39m [31m❱ [39m 530 │   │   │   data = [96mself[39m._next_data()                                            [31m│
+[31m│[39m    531 │   │   │   [96mself[39m._num_yielded += [94m1[39m                                              [31m│
+[31m│[39m    532 │   │   │   [94mif[39m [96mself[39m._dataset_kind == _DatasetKind.Iterable [95mand[39m \                [31m│
+[31m│[39m    533 │   │   │   │   │   [96mself[39m._IterableDataset_len_called [95mis[39m [95mnot[39m [94mNone[39m [95mand[39m \          [31m│
+[31m│[39m                                                                                        [31m│
+[31m│[39m /home/nhtlong/.conda/envs/kaggle/lib/python3.10/site-packages/torch/utils/data/[1mdataloa[22m [31m│
+[31m│[39m [1mder.py[22m:[94m570[39m in [92m_next_data[39m                                                               [31m│
+[31m│[39m                                                                                        [31m│
+[31m│[39m    567 │                                                                               [31m│
+[31m│[39m    568 │   [94mdef[39m [92m_next_data[39m([96mself[39m):                                                       [31m│
+[31m│[39m    569 │   │   index = [96mself[39m._next_index()  # may raise StopIteration                   [31m│
+[31m│[39m [31m❱ [39m 570 │   │   data = [96mself[39m._dataset_fetcher.fetch(index)  # may raise StopIteration    [31m│
+[31m│[39m    571 │   │   [94mif[39m [96mself[39m._pin_memory:                                                    [31m│
+[31m│[39m    572 │   │   │   data = _utils.pin_memory.pin_memory(data)                           [31m│
+[31m│[39m    573 │   │   [94mreturn[39m data                                                             [31m│
+[31m│[39m                                                                                        [31m│
+[31m│[39m /home/nhtlong/.conda/envs/kaggle/lib/python3.10/site-packages/torch/utils/data/_utils/ [31m│
+[31m│[39m [1mfetch.py[22m:[94m52[39m in [92mfetch[39m                                                                   [31m│
+[31m│[39m                                                                                        [31m│
+[31m│[39m   49 │   │   │   data = [[96mself[39m.dataset[idx] [94mfor[39m idx [95min[39m possibly_batched_index]          [31m│
+[31m│[39m   50 │   │   [94melse[39m:                                                                     [31m│
+[31m│[39m   51 │   │   │   data = [96mself[39m.dataset[possibly_batched_index]                           [31m│
+[31m│[39m [31m❱ [39m52 │   │   [94mreturn[39m [96mself[39m.collate_fn(data)                                              [31m│
+[31m│[39m   53                                                                                   [31m│
+[31m│[39m                                                                                        [31m│
+[31m│[39m /home/nhtlong/.conda/envs/kaggle/lib/python3.10/site-packages/transformers/data/[1mdata_c[22m [31m│
+[31m│[39m [1mollator.py[22m:[94m67[39m in [92mdefault_data_collator[39m                                                 [31m│
+[31m│[39m                                                                                        [31m│
+[31m│[39m     64 │   # on the whole batch.                                                       [31m│
+[31m│[39m     65 │                                                                               [31m│
+[31m│[39m     66 │   [94mif[39m return_tensors == [33m"pt"[39m:                                                  [31m│
+[31m│[39m [31m❱ [39m  67 │   │   [94mreturn[39m torch_default_data_collator(features)                            [31m│
+[31m│[39m     68 │   [94melif[39m return_tensors == [33m"tf"[39m:                                                [31m│
+[31m│[39m     69 │   │   [94mreturn[39m tf_default_data_collator(features)                               [31m│
+[31m│[39m     70 │   [94melif[39m return_tensors == [33m"np"[39m:                                                [31m│
+[31m│[39m                                                                                        [31m│
+[31m│[39m /home/nhtlong/.conda/envs/kaggle/lib/python3.10/site-packages/transformers/data/[1mdata_c[22m [31m│
+[31m│[39m [1mollator.py[22m:[94m131[39m in [92mtorch_default_data_collator[39m                                          [31m│
+[31m│[39m                                                                                        [31m│
+[31m│[39m    128 │   │   │   [94mif[39m [96misinstance[39m(v, torch.Tensor):                                     [31m│
+[31m│[39m    129 │   │   │   │   batch[k] = torch.stack([f[k] [94mfor[39m f [95min[39m features])                [31m│
+[31m│[39m    130 │   │   │   [94melse[39m:                                                               [31m│
+[31m│[39m [31m❱ [39m 131 │   │   │   │   batch[k] = torch.tensor([f[k] [94mfor[39m f [95min[39m features])               [31m│
+[31m│[39m    132 │                                                                               [31m│
+[31m│[39m    133 │   [94mreturn[39m batch                                                                [31m│
+[31m│[39m    134                                                                                 [31m│
+[31m╰────────────────────────────────────────────────────────────────────────────────────────╯
+[1mValueError: [22mexpected sequence of length [1m72[22m at dim [1m1[22m [1m([22mgot [1m66)

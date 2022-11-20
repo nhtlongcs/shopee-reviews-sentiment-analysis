@@ -1,0 +1,55 @@
+
+  0%|                                                             | 0/160 [00:00<?, ?it/s]/home/nhtlong/miniconda3/lib/python3.9/site-packages/torch/nn/parallel/_functions.py:68: UserWarning: Was asked to gather along dimension 0, but all input tensors were scalars; will instead unsqueeze and return a vector.
+  warnings.warn('Was asked to gather along dimension 0, but all '
+
+
+
+ 20%|██████████▍                                         | 32/160 [00:12<00:30,  4.16it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 1000
+  Batch size = 32
+
+ 88%|██████████████████████████████████████████████▍      | 28/32 [00:02<00:00,  9.44it/s]
+  warnings.warn('Was asked to gather along dimension 0, but all '
+
+
+
+ 40%|████████████████████▊                               | 64/160 [00:23<00:22,  4.17it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 1000
+  Batch size = 32
+
+ 97%|███████████████████████████████████████████████████▎ | 31/32 [00:03<00:00,  9.42it/s]
+  warnings.warn('Was asked to gather along dimension 0, but all '
+
+
+
+ 60%|███████████████████████████████▏                    | 96/160 [00:35<00:15,  4.17it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 1000
+  Batch size = 32
+
+  warnings.warn('Was asked to gather along dimension 0, but all '
+{'eval_loss': 0.1689942330121994, 'eval_accuracy': 0.948, 'eval_runtime': 3.3732, 'eval_samples_per_second': 296.454, 'eval_steps_per_second': 9.487, 'epoch': 3.0}
+
+
+
+ 80%|████████████████████████████████████████▊          | 128/160 [00:47<00:07,  4.17it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 1000
+  Batch size = 32
+ 53%|████████████████████████████▏                        | 17/32 [00:01<00:01,  9.48it/s]
+  warnings.warn('Was asked to gather along dimension 0, but all '
+
+
+
+
+100%|███████████████████████████████████████████████████| 160/160 [00:59<00:00,  4.15it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 1000
+  Batch size = 32
+ 56%|█████████████████████████████▊                       | 18/32 [00:01<00:01,  9.45it/s]
+{'eval_loss': 0.15106672048568726, 'eval_accuracy': 0.95, 'eval_runtime': 3.3805, 'eval_samples_per_second': 295.819, 'eval_steps_per_second': 9.466, 'epoch': 5.0}
+{'train_runtime': 70.8075, 'train_samples_per_second': 70.614, 'train_steps_per_second': 2.26, 'train_loss': 0.18378894329071044, 'epoch': 5.0}
+Training completed. Do not forget to share your model on huggingface.co/models =)
+100%|███████████████████████████████████████████████████| 160/160 [01:02<00:00,  2.55it/s]
