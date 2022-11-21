@@ -19,3 +19,6 @@ runs/
 data_sample/
 .pytest_cache
 data
+wandb 
+results
+checkpoints

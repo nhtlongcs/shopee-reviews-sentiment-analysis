@@ -9,7 +9,7 @@ sentiment_feats = Features({
 # https://huggingface.co/docs/datasets/tabular_load#csv-files
 VNMWordSegmentedDataset = load_dataset("csv",
                                        data_files={
-                                        "train": "../train.csv",
-                                        "test": "../train.csv"
+                                           "train": "data/train.csv",
+                                           "test": "data/val.csv"
                                        },
                                        features=sentiment_feats)

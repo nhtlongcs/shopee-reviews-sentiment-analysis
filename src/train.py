@@ -32,16 +32,14 @@ def compute_metrics(eval_pred):
 
 
 model = RobertaForSequenceClassification.from_pretrained(
-    "wonrax/phobert-base-vietnamese-sentiment",
-    num_labels=2,
-    ignore_mismatched_sizes=True)
+    "vinai/phobert-base", num_labels=2, ignore_mismatched_sizes=True)
 
 dataset = VNMWordSegmentedDataset
 
-tokenizer = AutoTokenizer.from_pretrained(
-    "wonrax/phobert-base-vietnamese-sentiment", use_fast=False)
+tokenizer = AutoTokenizer.from_pretrained("vinai/phobert-base", use_fast=False)
 
 data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
+
 
 def tokenize_func(batch):
     return tokenizer(
@@ -49,11 +47,11 @@ def tokenize_func(batch):
         padding=True,
     )
 
+
 tokenized_datasets = dataset.map(tokenize_func, batched=True)
 
-train_dataset = tokenized_datasets['train'].shuffle(seed=42).select(
-    range(1000))
-valid_dataset = tokenized_datasets['test'].shuffle(seed=43).select(range(1000))
+train_dataset = tokenized_datasets['train'].shuffle(seed=42)
+valid_dataset = tokenized_datasets['test'].shuffle(seed=43)
 
 # https://huggingface.co/docs/transformers/training#finetune-with-trainer
 training_args = TrainingArguments(
@@ -61,7 +59,7 @@ training_args = TrainingArguments(
     learning_rate=2e-5,
     per_device_train_batch_size=16,
     per_device_eval_batch_size=16,
-    num_train_epochs=5,
+    num_train_epochs=20,
     weight_decay=0.01,
     evaluation_strategy="epoch",
 )
